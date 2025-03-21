@@ -2,6 +2,7 @@
 #include "include/my_vector.h"          //8 -> 25
 #include "include/my_queue.h"           //27 -> 42
 #include "include/my_stack.h"           //44 -> 57
+#include "include/my_list.h"            //62 -> 81
 
 using namespace std;
 
@@ -43,18 +44,39 @@ int main(){
     //Stack  -------------------------------------------------------------------------------
     //--------------------------------------------------------------------------------------
 
-    Stack<int> s;
+    // Stack<int> s;
 
-    s.push(15);
-    s.push(22);
-    s.push(34);
+    // s.push(15);
+    // s.push(22);
+    // s.push(34);
 
-    cout<<"Top "<<s.top()<<"\n";                                // -> 34
+    // cout<<"Top "<<s.top()<<"\n";                                // -> 34
 
-    s.pop();
-    cout<<"Top after pop "<<s.top()<<"\n";                      // -> 22
-    cout<<"Size "<<s.get_size()<<"\n";                          // -> 2
+    // s.pop();
+    // cout<<"Top after pop "<<s.top()<<"\n";                      // -> 22
+    // cout<<"Size "<<s.get_size()<<"\n";                          // -> 2
 
     //--------------------------------------------------------------------------------------
     //--------------------------------------------------------------------------------------
+
+    List<int> myList = {1, 2, 3, 4, 5};
+
+    myList.push_front(9);
+    myList.push_back(11);
+
+    cout<<"List contains ";
+    for(auto it = myList.begin(); it != myList.end(); ++it) {
+        cout<<*it<<" ";
+    }
+    cout<<"\n";
+
+    cout<<"List contains 3 ? " << (myList.contains(3) ? "Yes\n" : "No\n");
+    cout<<"List contains 10 ? " << (myList.contains(10) ? "Yes\n" : "No\n");
+
+    int* found = myList.find(4);
+    if(found){
+        cout<<"Found value "<<*found<<"\n";
+    }else{
+        cout<<"Value not found\n";
+    }
 }
